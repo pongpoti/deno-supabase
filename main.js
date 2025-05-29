@@ -6,11 +6,24 @@ const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_KEY = Deno.env.get("SUPABASE_KEY");
 
 const supabase = createClient( SUPABASE_URL, SUPABASE_KEY);
-const { data, error } = await supabase.from("test").select();
-
-
+/*
+const { data, error } = await supabase.from("test")
+    .insert(
+        {
+            name : "ปองสิทธิ์",
+            surname : "โพธิคุณ"
+        }
+    )
+*/
 
 app.get("/", (req, res) => {
+    const { data, error } = supabase.from("test")
+    .insert(
+        {
+            name : "ปองสิทธิ์",
+            surname : "โพธิคุณ"
+        }
+    )
   res.send(data);
 });
 
