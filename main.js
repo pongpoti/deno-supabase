@@ -9,6 +9,7 @@ const supabase = createClient( SUPABASE_URL, SUPABASE_KEY);
 const { data, error } = await supabase.from("test").select();
 
 
+
 app.get("/", (req, res) => {
   res.send(data);
 });
