@@ -28,15 +28,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const payload = req.body;
-  const { data, error } = supabase.from("test")
-    .insert(
-      {
-        name: payload,
-        surname: payload,
-      },
-    );
-  res.send(data);
+  supabase.from('Data').insert([
+      { Name: 'ปองสิทธิ์', surname: 'โพธิคุณ' }
+    ]).select()
 });
 
 app.listen(8000);
